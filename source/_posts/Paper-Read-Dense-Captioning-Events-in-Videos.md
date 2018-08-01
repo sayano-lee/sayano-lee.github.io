@@ -18,9 +18,9 @@ The author observed that conventional video captioning models were not able to (
 This newly-proposed events task requires detecting as many as events in a video segment and generating appropriate captions for each identified event. 
 
 Two key challenges proposed: 
-(1) events in given videos can range across multiple time scales and can even overlap
-(2) events in given videos are usually related to one another
+(1) events in given videos can range across multiple time scales and can even overlap (related to proposals)
+(2) events in given videos are usually related to one another (related to captioning)
 
 Given the first challenge, one single proposal may contain several video clips, whose features are extracted in advance, and the proposal features are either encoded by mean pooling <sup>50</sup> or RNN <sup>49</sup> in conventional methods, which cannot deal with long video segments because of vanishing gradients. Therefore, the author proposed to extend [DAPS]() to multi-scale detection of events.
 
-Given the second challenge, according to the author, there are not many existed video captioning tasks with 
+Given the second challenge, according to the author, there are not many existed video captioning tasks with multiple captions. An example was given about "cooking" videos in which events happened sequentially and highly correlated to the objects in the video <sup>37</sup>. It is not a representative model for "open" domain videos, thus the author utilizes the context from all the events 
