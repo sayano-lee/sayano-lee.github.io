@@ -1,7 +1,11 @@
 ---
 title: 'Paper Read: Dense-Captioning Events in Videos'
 date: 2018-07-31 22:16:46
-tags:
+tags: 
+	- cv 
+	- nlp
+	- video captioning
+	- iccv
 ---
 
 Dense-Captioning Events in Videos [arxiv](https://arxiv.org/abs/1705.00754)
@@ -10,6 +14,8 @@ Affiliation: Stanford University
 Publication: ICCV2017
 Github: [website](https://github.com/ranjaykrishna/densevid_eval) ***only eval codes provided***
 project page: [website](https://cs.stanford.edu/people/ranjaykrishna/densevid/)
+
+<!-- more -->
 
 ## Introduction
 
@@ -29,4 +35,15 @@ Given the second challenge, according to the author, there are not many existed 
 
 ### Models
 
-{% asset_img model.jpg example images}
+{% asset_img model.jpg pipeline of ActivityNet %}
+
+Main components of the proposed pipeline are Proposal module and Captioning module. As described in Introduction, the Proposal module is able to encode video features into multiple scales to generate several proposals. 
+
+The goal of this pipeline is to jointly localize temporal proposals and describe each of them with natural language. As mentioned before, this pipeline is designed to deal with two key challenges: events overlapping and interconnection between events. The author proposed proposal module and captioning module to handle them respectively. Specifically, the *Proposal module* can encode multi-scale video clips to mitigate long time video problem as well as overlapping problem, and *Captioning module* takes contexts between past and future into consideration, extracting intersectional infos among all proposal events. 
+
+#### 1. Proposal Module
+The Proposal module is a modification from [DAPS](), and DAPS pipelines are as follows:
+
+{% asset_img daps_model.jpg pipeline of DAPS %}
+
+The architecture of this proposal module is able to tackle the challenge of detecting events in short as well as long video sequences, while preventing the dense application of the language model over sliding windows during inference. The input of the Proposal module is a series of semantic features extracted from video frames. 
