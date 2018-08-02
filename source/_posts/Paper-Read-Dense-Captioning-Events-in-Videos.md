@@ -46,4 +46,7 @@ The Proposal module is a modification from [DAPS](), and DAPS pipelines are as f
 
 {% asset_img daps_model.jpg pipeline of DAPS %}
 
-The architecture of this proposal module is able to tackle the challenge of detecting events in short as well as long video sequences, while preventing the dense application of the language model over sliding windows during inference. The input of the Proposal module is a series of semantic features extracted from video frames. 
+The architecture of this proposal module is able to tackle the challenge of detecting events in short as well as long video sequences, while preventing the dense application of the language model over sliding windows during inference. The input of the Proposal module is a series of semantic features extracted from video frames: 
+{% blockquote %}
+{f = F(v<sub>t</sub> : v<sub>t+δ</sub>)}  <sub>δ = 16</sub>
+{% endblockquote %}
