@@ -47,17 +47,11 @@ The goal of this pipeline is to jointly localize temporal proposals and describe
 <!-- ![DAPs](daps_model.jpg) -->
 
 ![Proposal Module of ActivityNet](proposal_model.jpg)
-The architecture of this proposal module is able to tackle the challenge of detecting events in short as well as long video sequences, while preventing the dense application of the language model over sliding windows during inference. The input of the Proposal module is a series of semantic features extracted from video frames whose total length is T:
+The architecture of this proposal module is able to tackle the challenge of detecting events in short as well as long video sequences, while preventing the dense application of the language model over sliding windows during inference. The input of the Proposal module is a series of semantic features extracted from video frames whose total length is T: 
 
-{% blockquote %}
-{f = F(v<sub>t</sub> : v<sub>t+δ</sub>)}  <sub>δ = 16</sub>
-{% endblockquote %}
-
-$$\begin{equation}
-e=mc^2
-\end{equation}\label{eq1}$$
-
-$\eqref{eq1}$
+$$
+f_t = F(v_t : v_{t+\sigma})  \hspace{2em} \sigma = 16
+$$
 
 The output of the function F is a matrix with size of N x D, where N equals T/δ and D equals 500, which means neighboring semantic features (green features) are extracted from non-overlapping video clips.
 
@@ -66,3 +60,17 @@ Video features are then sent into a LSTM proposal architecture to generate event
 #### Captioning Module
 
 ![Captioning Module of ActivityNet](captioning_model.jpg)
+The captioning module is able to capture all events from past to future. And attention mechanism is taken into consideration to integrate both past and future event proposal features. The past and future context representations are calculated as follows:
+
+$$
+h_{i}^{past} = \frac{1}{Z^{past}}\sum_{j \neq i} \mathbb{1} [t_{j}^{end} \lt t_{i}^{end}] \omega_{j}h_{j}
+$$
+$$
+h_{i}^{future} = \frac{1}{Z^{future}}\sum_{j \neq i} \mathbb{1} [t_{j}^{end} \geqq t_{i}^{end}] \omega_{j}h_{j}
+$$
+
+And:
+
+$$
+Z^{past} = \sum_{j \neq i} \mathbb{1} [t_{j}^{end} \lt t_{i}^{end}] \hspace{2em} Z^{future} = \sum_{j \neq i} \mathbb{1} [t_{j}^{end} \geqq t_{i}^{end}]
+$$
