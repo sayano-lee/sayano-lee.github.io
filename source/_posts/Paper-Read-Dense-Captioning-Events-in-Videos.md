@@ -8,11 +8,11 @@ tags:
 	- iccv
 ---
 
-Dense-Captioning Events in Videos [arxiv](https://arxiv.org/abs/1705.00754)
+**Dense-Captioning Events in Videos** [arxiv](https://arxiv.org/abs/1705.00754)
 Author: Ranjay Krishna, Kenji Hata, Frederic Ren, Li Fei-Fei, Juan Carlos Niebles
 Affiliation: Stanford University
 Publication: ICCV2017
-Github: [website](https://github.com/ranjaykrishna/densevid_eval) ***only eval codes provided***
+Github: [website](https://github.com/ranjaykrishna/densevid_eval) <span class='notes'>(only eval codes provided)</span>
 project page: [website](https://cs.stanford.edu/people/ranjaykrishna/densevid/)
 
 <!-- more -->
@@ -27,9 +27,9 @@ Two key challenges are proposed:
 (1) events in given videos can range across multiple time scales and can even overlap (related to proposals)
 (2) events in given videos are usually related to one another (related to captioning)
 
-Given the first challenge, one single proposal may contain several video clips, whose features are extracted in advance, and the proposal features are either encoded by mean pooling <sup>50</sup> or RNN <sup>49</sup> in conventional methods, which cannot deal with long video segments because of vanishing gradients. Therefore, the author proposed to extend [DAPS]() to multi-scale detection of events.
+Given the first challenge, one single proposal may contain several video clips, whose features are extracted in advance, and the proposal features are either encoded by mean pooling <sup>[1](#1)</sup> or RNN <sup>[2](#2)</sup> in conventional methods, which cannot deal with long video segments because of vanishing gradients. Therefore, the author proposed to extend DAPS <sup>[3](#3)</sup> to multi-scale detection of events.
 
-Given the second challenge, according to the author, there are not many existed video captioning tasks with multiple captions. An example was given about "cooking" videos in which events happened sequentially and highly correlated to the objects in the video <sup>37</sup>. It is not a representative model for "open" domain videos, thus the author utilizes the context from all past and future ***events*** (proposals).
+Given the second challenge, according to the author, there are not many existed video captioning tasks with multiple captions. An example was given about "cooking" videos in which events happened sequentially and highly correlated to the objects in the video <sup>[4](#4)</sup>. It is not a representative model for "open" domain videos, thus the author utilizes the context from all past and future ***events*** (proposals).
 
 <!-- ## Pipeline -->
 
@@ -89,7 +89,7 @@ $a_{i}$ represents attention factor, calculated from learned weight $\omega_{a}h
 
 ## ActivityNet Datasets
 
-The ActivityNet Captions dataset connects videos to a series of temporally annotated sentences. Each sentence covers an unique segment of the video, describing an event that occurs. These events may occur over very long or short periods of time and are not limited in any capacity, allowing them to co-occur. <sup>[self]()</sup>
+The ActivityNet Captions dataset connects videos to a series of temporally annotated sentences. Each sentence covers an unique segment of the video, describing an event that occurs. These events may occur over very long or short periods of time and are not limited in any capacity, allowing them to co-occur.
 
 ### Dataset Analysis
 
@@ -103,7 +103,11 @@ With the percentage of verbs comprising ActivityNet Captions being significantly
 
 ## Summary
 
-This paper proposes a new captioning task which describes an arbitrary-length video segment with several events, and a method called ActivityNet Captioning model to tackle this challenge. The proposed pipeline contains two parts: the Proposal module and the Captioning module. The Proposal module generates event proposals with overlapping from pre-extracted video features. The Captioning module generates corresponding events from attention-weighted contextual features between past and future. 
+This paper proposes a new captioning task which describes an arbitrary-length video segment with several events, and a method called ActivityNet Captioning model to deal with this challenge. The proposed pipeline contains two parts: the Proposal module and the Captioning module. The Proposal module generates event proposals with overlapping from pre-extracted video features. The Captioning module generates corresponding events from attention-weighted contextual features between past and future. 
 
 ## References
 
+<span id="1" class="ref">[1] S. Venugopalan, H. Xu, J. Donahue, M. Rohrbach, R. Mooney, and K. Saenko. Translating videos to natural language using deep recurrent neural networks. arXiv preprint arXiv:1412.4729, 2014.</span>
+<span id="2" class="ref">[2] S. Venugopalan, M. Rohrbach, J. Donahue,  R. Mooney, T. Darrell, and K. Saenko. Sequence to sequence video to text.  In Proceedings of the IEEE International Conference on Computer Vision, pages 4534–4542, 2015.</span>
+<span id="3" class="ref">[3] V. Escorcia, F. C. Heilbron, J. C. Niebles, and B. Ghanem. Daps:Deep action proposals for action understanding. In European Conference on Computer Vision, pages 768–784. Springer, 2016.</span>
+<span id="4" class="ref">[4] A. Rohrbach, M. Rohrbach, W. Qiu, A. Friedrich, M. Pinkal, and B. Schiele. Coherent multi-sentence video description with variable level of detail.  In German Conference on Pattern Recognition, pages 184–195. Springer, 2014.</span>
