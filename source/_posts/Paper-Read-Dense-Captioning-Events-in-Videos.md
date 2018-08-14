@@ -13,7 +13,7 @@ Author: Ranjay Krishna, Kenji Hata, Frederic Ren, Li Fei-Fei, Juan Carlos Nieble
 Affiliation: Stanford University
 Publication: ICCV2017
 Github: [website](https://github.com/ranjaykrishna/densevid_eval) <span class='notes'>(only eval codes provided)</span>
-project page: [website](https://cs.stanford.edu/people/ranjaykrishna/densevid/)
+Project Page: [website](https://cs.stanford.edu/people/ranjaykrishna/densevid/)
 
 <!-- more -->
 
@@ -111,3 +111,10 @@ This paper proposes a new captioning task which describes an arbitrary-length vi
 <span id="2" class="ref">[2] S. Venugopalan, M. Rohrbach, J. Donahue,  R. Mooney, T. Darrell, and K. Saenko. Sequence to sequence video to text.  In Proceedings of the IEEE International Conference on Computer Vision, pages 4534–4542, 2015.</span>
 <span id="3" class="ref">[3] V. Escorcia, F. C. Heilbron, J. C. Niebles, and B. Ghanem. Daps:Deep action proposals for action understanding. In European Conference on Computer Vision, pages 768–784. Springer, 2016.</span>
 <span id="4" class="ref">[4] A. Rohrbach, M. Rohrbach, W. Qiu, A. Friedrich, M. Pinkal, and B. Schiele. Coherent multi-sentence video description with variable level of detail.  In German Conference on Pattern Recognition, pages 184–195. Springer, 2014.</span>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css" integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js" integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js" integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous"></script>
+
+<script>renderMathInElement(document.body);</script>
