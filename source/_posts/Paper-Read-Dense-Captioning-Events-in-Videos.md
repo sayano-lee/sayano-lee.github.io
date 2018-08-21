@@ -113,7 +113,7 @@ $a_{i}$ represents attention factor, calculated from learned weight $\omega_{a}h
 
 ## ActivityNet Datasets
 
-The ActivityNet Captions dataset connects videos to a series of temporally annotated sentences. Each sentence covers an unique segment of the video, describing an event that occurs. These events may occur over very long or short periods of time and are not limited in any capacity, allowing them to co-occur.
+The ActivityNet Captions dataset connects videos to a series of temporally annotated sentences. Each sentence covers an unique segment of the video, describing an event that occurs. These events may occur over very long or short periods of time and are not limited in any capacity, allowing them to co-occur. 
 
 ### Dataset Analysis
 
